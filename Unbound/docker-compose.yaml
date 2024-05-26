@@ -13,8 +13,8 @@ services:
     hostname: pihole
     image: pihole/pihole:latest # remember to change this if you're using rpi
     networks:
-      dns_net:
-        ipv4_address: 172.23.0.7
+      bridge:
+        ipv4_address: 172.17.0.7
       proxy:
     ports:
       - "53:53/tcp"
@@ -24,7 +24,7 @@ services:
     environment:
       TZ: 'Europe/London'
       WEBPASSWORD: 'password'
-      PIHOLE_DNS_: '172.23.0.8#5053'
+      PIHOLE_DNS_: '172.17.0.8#5053'
     volumes:
       - '/home/kannymanny/Docker/Unbound/Data/Pi-hole/etc-pihole/:/etc/pihole/'
       - '/home/kannymanny/Docker/Unbound/Data/Pi-hole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
@@ -33,8 +33,8 @@ services:
     container_name: unbound
     image: mvance/unbound:latest # remember to change this if you're using rpi
     networks:
-      dns_net:
-        ipv4_address: 172.23.0.8
+      bridge:
+        ipv4_address: 172.17.0.8
     volumes:
       - /home/kannymanny/Docker/Unbound:/opt/unbound/etc/unbound
     ports:
