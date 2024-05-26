@@ -28,8 +28,8 @@ services:
       WEBPASSWORD: 'password'
       PIHOLE_DNS_: '172.23.0.8#5053'
     volumes:
-      - '/home/ubuntu/docker/pihole/etc-pihole/:/etc/pihole/'
-      - '/home/ubuntu/docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - '/home/kannymanny/Docker/Unbound/Data/Pi-hole/etc-pihole/:/etc/pihole/'
+      - '/home/kannymanny/Docker/Unbound/Data/Pi-hole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
     restart: unless-stopped
   unbound:
     container_name: unbound
@@ -38,7 +38,7 @@ services:
       dns_net:
         ipv4_address: 172.23.0.8
     volumes:
-      - /home/ubuntu/docker/unbound:/opt/unbound/etc/unbound
+      - /home/kannymanny/Docker/Unbound:/opt/unbound/etc/unbound
     ports:
       - "5053:53/tcp"
       - "5053:53/udp"
