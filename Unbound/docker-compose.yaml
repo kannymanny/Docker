@@ -22,10 +22,10 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "85:80/tcp"
-    #- "443:443/tcp"
+      - "443:443/tcp"
     environment:
-      TZ: 'Europe/London'
-      WEBPASSWORD: 'password'
+      TZ: 'Asia/Kolkata'
+      WEBPASSWORD: 'FB7CHim7UBkBvR'
       PIHOLE_DNS_: '172.23.0.8#5053'
     volumes:
       - '/home/kannymanny/Docker/Unbound/Data/Pi-hole/etc-pihole/:/etc/pihole/'
