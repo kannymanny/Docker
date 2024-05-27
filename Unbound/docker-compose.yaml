@@ -50,6 +50,7 @@ services:
         ipv4_address: 172.28.0.8
     volumes:
       - /home/kannymanny/Docker/Unbound:/opt/unbound/etc/unbound
+      - /home/kannymanny/Docker/Unbound/a-records.conf:/opt/unbound/etc/unbound/a-records.conf
     ports:
       - "5053:53/tcp"
       - "5053:53/udp"
