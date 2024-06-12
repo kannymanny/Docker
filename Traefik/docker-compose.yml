@@ -13,31 +13,30 @@ services:
       - 80:80
       - 443:443
     environment:
-      - CF_API_EMAIL=your@email.com
-      - CF_DNS_API_TOKEN=your-api-key
+      - CF_API_EMAIL=kanishak1111@gmail.com
+      - CF_DNS_API_TOKEN=YQDX4_qp7DDlZwTtLa2INUACBz4DqVI2xcRjx6PW
       # - CF_API_KEY=YOU_API_KEY
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/ubuntu/docker/traefik/traefik.yml:/traefik.yml:ro
-      - /home/ubuntu/docker/traefik/acme.json:/acme.json
-      - /home/ubuntu/docker/traefik/config.yml:/config.yml:ro
-      - /home/ubuntu/docker/traefik/logs:/var/log/traefik
+      - /home/kannymanny/Docker/Traefik/traefik-config/traefik.yml:/traefik.yml:ro
+      - /home/kannymanny/Docker/Traefik/traefik-config/acme.json:/acme.json
+      - /home/kannymanny/Docker/Traefik/traefik-config/config.yml:/config.yml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
-      - "traefik.http.routers.traefik.rule=Host(`traefik-dashboard.yourdomain.co.uk`)"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=YOUR_USERNAME_PASSWORD"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.kannymanny.site`)"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=admin:admin"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
       - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik-dashboard.yourdomain.co.uk`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.kannymanny.site`)"
       - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].main=yourdomain.co.uk"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.yourdomain.co.uk"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=kannymanny.site"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.kannymanny.site"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
 
