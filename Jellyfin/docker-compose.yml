@@ -12,7 +12,7 @@ services:
       - /home/kannymanny/Data/jellyfin/cache:/cache
       - /home/smbuser/Shared/HDD/Media/Movies:/Films:ro
       - /home/smbuser/Shared/HDD/Media/Web-series:/TVShows:ro
-      - /home/smbuser/Shared/HDD/Personal:/Personal:ro
+      - /home/smbuser/Shared/HDD/Media/Personal:/Personal:ro
       #- /home/ubuntu/YOUR_NAS/Audiobooks:/Audiobooks:ro
       #- /home/ubuntu/YOUR_NAS/Music:/Music:ro
     ports:
